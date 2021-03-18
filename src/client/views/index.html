@@ -22,7 +22,16 @@
                     onclick="return Client.handleSubmit(event)" onsubmit="return handleSubmit(event)">
             </form>
         </section>
-
+         <script>
+            // Check that service workers are supported
+            if ('serviceWorker' in navigator) {
+                // Use the window load event to keep the page load performant
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/service-worker.js');
+                });
+            }
+           </script>
+        <section>
         <section>
             <div id="results">
                 <p id="logger">Waiting for input...</p>
